@@ -3,7 +3,11 @@
  * HINT: Make sure to pass in the audioSrc as parameter to create a new audio track
  * HINT: Create a play function to play the audio if called
  */
-class Beat {}
+class Beat {
+  constructor(file) {
+    this.file = file;
+  }
+}
 
 /**
  * Button class that keeps track of the button color based on a press
