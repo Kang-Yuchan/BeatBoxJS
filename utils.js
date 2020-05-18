@@ -22,25 +22,35 @@ class Button {
     this.color = color;
     this.keyCode = keyCode;
     this.element = document.getElementById(keyCode);
+    this.elemStyle = this.element.style;
     this.setButtonColorInHTML();
+    this.setATransitionEndListener();
   }
+
+  setATransitionEndListener = () => {
+    this.element.addEventListener("transitionend", this.deselect);
+  };
+
   /**
    * Set the button color based on color specified
    */
   setButtonColorInHTML = () => {
-    this.element.style.borderColor = this.color;
+    this.elemStyle.borderColor = this.color;
   };
 
   /**
    * Select function to set the background color and boxShadow
    */
   select = () => {
-    this.element.style.backgroundColor = this.color;
-    this.element.style.boxShadow = "0px 0px 17px 0px";
+    this.elemStyle.backgroundColor = this.color;
+    this.elemStyle.style.boxShadow = "0px 0px 17px 0px";
   };
 
   /**
    * Deselect function to reset background color and boxShadow
    */
-  deselect = () => {};
+  deselect = () => {
+    this.elemStyle.backgroundColor = "transparent";
+    this.elemStyle.boxShadow = "none";
+  };
 }
