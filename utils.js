@@ -34,7 +34,10 @@ class Button {
   /**
    * Select function to set the background color and boxShadow
    */
-  select = () => {};
+  select = () => {
+    this.element.style.backgroundColor = this.color;
+    this.element.style.boxShadow = "0px 0px 17px 0px";
+  };
 
   /**
    * Deselect function to reset background color and boxShadow
