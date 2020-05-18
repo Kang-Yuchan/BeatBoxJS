@@ -18,12 +18,18 @@ class Beat {
  * Button class that keeps track of the button color based on a press
  */
 class Button {
-  constructor(color, keyCode) {}
-
+  constructor(color, keyCode) {
+    this.color = color;
+    this.keyCode = keyCode;
+    this.element = document.getElementById(keyCode);
+    this.setButtonColorInHTML();
+  }
   /**
    * Set the button color based on color specified
    */
-  setButtonColorInHTML = () => {};
+  setButtonColorInHTML = () => {
+    this.element.style.borderColor = this.color;
+  };
 
   /**
    * Select function to set the background color and boxShadow
