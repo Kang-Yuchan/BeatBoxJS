@@ -5,7 +5,7 @@
  * DONE: Button pt1: Initialize color and element values
  * DONE: Button pt2: Set button color upon initialization | Initialize button in beats["65"]
  * DONE: Button pt3: Complete select function to set the color and shadow of button upon pressing
- * TODO: Button pt4: Call the select() function upon key press ;)
+ * DONE: Button pt4: Call the select() function upon key press ;)
  * TODO: Button pt5: Add transition for button selection
  * TODO: Button pt6: Remove the button style upon transition end | Use deselect function
  * TODO: Complete all button instances with the following colors
@@ -57,8 +57,12 @@ let beats = {
  * HINT: use the keyCode
  */
 triggerBeat = (event) => {
-  beats[event.keyCode].beat.play();
-  beats[event.keyCode].button.select();
+  const keyCode = event.keyCode;
+  if (beats[keyCode]) {
+    const pressKey = beats[keyCode];
+    pressKey.beat.play();
+    pressKey.button.select();
+  }
 };
 
 /**
